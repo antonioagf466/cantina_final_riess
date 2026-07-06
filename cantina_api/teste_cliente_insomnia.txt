@@ -1,0 +1,51 @@
+--GET Listar todos (sucesso 200);GET http://localhost:3000/api/clientes
+
+--POST Criar cliente 1 (sucesso 201);POST http://localhost:3000/api/clientes
+
+{"matricula":"2024001","nome":"Joao Silva","email":"joao@email.com"}
+
+--POST Criar cliente 2 (sucesso 201);POST http://localhost:3000/api/clientes
+
+{"matricula":"2024002","nome":"Maria Souza","email":"maria@email.com"}
+
+--POST Criar cliente 3 (sucesso 201);POST http://localhost:3000/api/clientes
+
+{"matricula":"2024003","nome":"Pedro Lima","email":"pedro@email.com"}
+
+--GET Por ID existente (sucesso 200);GET http://localhost:3000/api/clientes/001
+
+--GET Por ID inexistente (erro 404);GET http://localhost:3000/api/clientes/999
+
+--POST Matricula duplicada (erro 400);POST http://localhost:3000/api/clientes
+
+{"matricula":"2024001","nome":"Outro Cara","email":"outro@email.com"}
+
+--POST Sem matricula (erro 400);POST http://localhost:3000/api/clientes
+
+{"nome":"Sem Matricula","email":"sem@email.com"}
+
+--POST Email invalido (erro 400);POST http://localhost:3000/api/clientes
+
+{"matricula":"2024004","nome":"Email Quebrado","email":"emailruim"}
+
+--POST Body vazio (erro 400 com 3 erros);POST http://localhost:3000/api/clientes
+
+--PUT Atualizar existente (sucesso 200);PUT http://localhost:3000/api/clientes/002
+
+{"matricula":"2024002","nome":"Maria Souza Atualizada","email":"maria.nova@email.com"}
+
+--PUT ID inexistente (erro 404);PUT http://localhost:3000/api/clientes/888
+
+{"matricula":"9999999","nome":"Fantasma","email":"fantasma@email.com"}
+
+--PUT Matricula de outro cliente (erro 400);PUT http://localhost:3000/api/clientes/001
+
+{"matricula":"2024003","nome":"Joao Silva","email":"joao@email.com"}
+
+--PUT Body invalido (erro 400);PUT http://localhost:3000/api/clientes/001
+
+{"matricula":"","nome":"","email":""}
+
+--DELETE Existente (sucesso 200);DELETE http://localhost:3000/api/clientes/003
+
+--DELETE Inexistente (erro 404);DELETE http://localhost:3000/api/clientes/777
